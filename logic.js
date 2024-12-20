@@ -8,6 +8,7 @@ const equalSign = document.querySelector("#equals")
 const resetButton = document.querySelector("#resetButton")
 const leftContainer = document.querySelector("#leftContainer")
 const zero = document.querySelector("#zero")
+const changeSign = document.querySelector("#changeSign")
 
 let var1 = ""
 let operator = null
@@ -38,6 +39,17 @@ zero.addEventListener("click", (event) => {
     else {
         source = event.target
         var2 += source.textContent
+        display.textContent = var2
+    }
+})
+
+changeSign.addEventListener("click", () => {
+    if (operator === null) {
+        var1 *= -1
+        display.textContent = var1
+    }
+    else {
+        var2 *= -1
         display.textContent = var2
     }
 })
