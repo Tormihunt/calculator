@@ -1,32 +1,28 @@
+
+
 //all querySelectors
 const numberContainer = document.querySelector("#numberContainer")
 const display = document.querySelector("#display")
 const operatorContainer = document.querySelector("#operatorContainer")
 const equalSign = document.querySelector("#equals")
 
-let var1 = 0
+let var1 = ""
 let operator = null
-let var2 = null
+let var2 = ""
 
 display.textContent = var1
 
-//create numbers 0-9
-for (let i = 9; i > 0; i--) {
-    let btn = document.createElement("btn")
-    btn.setAttribute("id", `div${i}`)
-    btn.textContent = i
-    numberContainer.appendChild(btn)
-}
+
 
 numberContainer.addEventListener("click", (event) => {
     if (operator === null) {
         source = event.target
-        var1 = source.textContent
+        var1 += source.textContent
         display.textContent = var1
     }
     else {
         source = event.target
-        var2 = source.textContent
+        var2 += source.textContent
         display.textContent = var2
     }
 })

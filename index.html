@@ -12,33 +12,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="stylesheet.css">
     <script defer src="logic.js"></script>
 </head>
 <body>
-    <div id="calculatorContainer">
-        <div id="display">________________</div>
-        <div id="buttonCOntainer">
-            <div id="left container">
-                <div id="upperRow">
-                    <div>reset</div>
-                    <div>+/-</div>
+    <div id="calculatorContainer" class="flex">
+        <div id="display" class="flex">________________</div>
+        <div id="buttonContainer" class="flex">
+            <div id="leftContainer" class="flex">
+                <div id="upperRow" class="flex">
+                    <button>reset</button>
+                    <button>+/-</button>
                 </div>
-                <div id="numberContainer">
-
+                <div id="numberContainer" class="flex">
+                    <div class="flexRow">
+                        <button>7</button>
+                        <button>8</button>
+                        <button>9</button>
+                    </div>
+                    <div class="flexRow">
+                        <button>4</button>
+                        <button>5</button>
+                        <button>6</button>
+                    </div>
+                    <div class="flexRow">
+                        <button>1</button>
+                        <button>2</button>
+                        <button>3</button>
+                    </div>
                 </div>
-                <div id="lowerRow">
-                    <div>0</div>
-                    <div>.</div>
+                <div id="lowerRow" class="flex">
+                    <button>0</button>
+                    <button>.</button>
                 </div>
             </div>
-            <div id="rightContainer">
-                <div id="operatorContainer">
-                    <div>/</div>
-                    <div>*</div>
-                    <div>-</div>
-                    <div>+</div>
+            <div id="rightContainer" class="flex">
+                <div id="operatorContainer" class="flex">
+                    <button>/</button>
+                    <button>*</button>
+                    <button>-</button>
+                    <button>+</button>
                 </div>
-                <div id="equals">=</div>
+                <button id="equals">=</button>
             </div>
         </div>
     </div>
