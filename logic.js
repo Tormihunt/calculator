@@ -1,5 +1,4 @@
 
-
 //all querySelectors
 const numberContainer = document.querySelector("#numberContainer")
 const display = document.querySelector("#display")
@@ -9,15 +8,18 @@ const resetButton = document.querySelector("#resetButton")
 const leftContainer = document.querySelector("#leftContainer")
 const zero = document.querySelector("#zero")
 const changeSign = document.querySelector("#changeSign")
+const comma = document.querySelector("#comma")
 
 let var1 = ""
+let isVar1Float = false
 let operator = null
 let var2 = ""
+let isVar2Float = false
 
 display.textContent = var1
 
 
-
+//clicking concats a number
 numberContainer.addEventListener("click", (event) => {
     if (operator === null) {
         source = event.target
@@ -54,6 +56,19 @@ changeSign.addEventListener("click", () => {
     }
 })
 
+comma.addEventListener("click", () => {
+    if (operator === null) {
+        //toggles
+        isVar1Float = !isVar1Float
+        var1 += "."
+        display.textContent = var1
+    }
+    else {
+        isVar2Float = !isVar2Float
+        var2 += "."
+        display.textContent = var2
+    }
+})
 
 operatorContainer.addEventListener("click", (event) => {
     source = event.target
@@ -62,7 +77,15 @@ operatorContainer.addEventListener("click", (event) => {
 
 //evaluate and assign answer to var1
 equalSign.addEventListener("click", (event) => {
-    const addition = parseInt(var1) + parseInt(var2)
+    if (isVar1Float) {
+        var1 = parseFloat(var1)
+        console.log(var1)
+    }
+    else if (isVar2Float) {
+        var2 = parseFloat(var2)
+        console.log(var2)
+    }
+    const addition = parseFloat(var1) + parseFloat(var2)
     const subtraction = var1 - var2
     const multiplication = var1 * var2
     const division = var1 / var2
@@ -98,7 +121,9 @@ equalSign.addEventListener("click", (event) => {
 
 resetButton.addEventListener("click", () => {
     var1 = ""
+    isVar1Float = false
     operator = null
     var2 = ""
+    isVar2Float = false
     display.textContent = var1
 })
