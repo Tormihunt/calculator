@@ -31,18 +31,15 @@ numberContainer.addEventListener("click", (event) => {
 operatorContainer.addEventListener("click", (event) => {
     source = event.target
     operator = source.textContent
-    console.log(operator)
 })
 
 //evaluate and assign answer to var1
 equalSign.addEventListener("click", (event) => {
-    console.log("equalsign")
     const addition = parseInt(var1) + parseInt(var2)
     const subtraction = var1 - var2
     const multiplication = var1 * var2
     const division = var1 / var2
     if (operator !== null && var2 !== null) {
-        console.log("passed")
         switch (operator) {
             case "+" :
                 var1 = addition;
@@ -60,10 +57,13 @@ equalSign.addEventListener("click", (event) => {
                 var1 = division;
                 display.textContent = var1
                 break;
+        }
         operator = null
         var2 = ""
-        }
     }
+    console.log("var1: " + var1)
+    console.log("operator: " + operator)
+    console.log("var2: " + var2)
 })
 
 resetButton.addEventListener("click", () => {
