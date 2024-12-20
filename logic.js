@@ -5,6 +5,7 @@ const numberContainer = document.querySelector("#numberContainer")
 const display = document.querySelector("#display")
 const operatorContainer = document.querySelector("#operatorContainer")
 const equalSign = document.querySelector("#equals")
+const resetButton = document.querySelector("#resetButton")
 
 let var1 = ""
 let operator = null
@@ -45,7 +46,7 @@ equalSign.addEventListener("click", (event) => {
         switch (operator) {
             case "+" :
                 var1 = addition;
-                display.textContent = var1  
+                display.textContent = var1
                 break;
             case "-" :
                 var1 = subtraction;
@@ -59,6 +60,15 @@ equalSign.addEventListener("click", (event) => {
                 var1 = division;
                 display.textContent = var1
                 break;
+        operator = null
+        var2 = ""
         }
     }
+})
+
+resetButton.addEventListener("click", () => {
+    var1 = ""
+    operator = null
+    var2 = ""
+    display.textContent = var1
 })
