@@ -6,6 +6,8 @@ const display = document.querySelector("#display")
 const operatorContainer = document.querySelector("#operatorContainer")
 const equalSign = document.querySelector("#equals")
 const resetButton = document.querySelector("#resetButton")
+const leftContainer = document.querySelector("#leftContainer")
+const zero = document.querySelector("#zero")
 
 let var1 = ""
 let operator = null
@@ -27,6 +29,19 @@ numberContainer.addEventListener("click", (event) => {
         display.textContent = var2
     }
 })
+zero.addEventListener("click", (event) => {
+    if (operator === null) {
+        source = event.target
+        var1 += source.textContent
+        display.textContent = var1
+    }
+    else {
+        source = event.target
+        var2 += source.textContent
+        display.textContent = var2
+    }
+})
+
 
 operatorContainer.addEventListener("click", (event) => {
     source = event.target
@@ -54,8 +69,11 @@ equalSign.addEventListener("click", (event) => {
                 display.textContent = var1
                 break;
             case "/" :
-                var1 = division;
-                display.textContent = var1
+                if (var2 != 0) {
+                    var1 = division;
+                    display.textContent = var1
+                    }
+                else {display.textContent = "Can't divide by zero"}
                 break;
         }
         operator = null
