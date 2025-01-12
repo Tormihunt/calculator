@@ -10,10 +10,10 @@ const zero = document.querySelector("#zero")
 const changeSign = document.querySelector("#changeSign")
 const comma = document.querySelector("#comma")
 
-let var1 = ""
+let var1 = null
 let isVar1Float = false
 let operator = null
-let var2 = ""
+let var2 = null
 let isVar2Float = false
 
 display.textContent = var1
@@ -22,11 +22,13 @@ display.textContent = var1
 //clicking concats a number
 numberContainer.addEventListener("click", (event) => {
     if (operator === null) {
+        var1 = ""
         source = event.target
         var1 += source.textContent
         display.textContent = var1
     }
     else {
+        var2 = ""
         source = event.target
         var2 += source.textContent
         display.textContent = var2
@@ -120,10 +122,10 @@ equalSign.addEventListener("click", (event) => {
 })
 
 resetButton.addEventListener("click", () => {
-    var1 = ""
+    var1 = null
     isVar1Float = false
     operator = null
-    var2 = ""
+    var2 = null
     isVar2Float = false
     display.textContent = var1
 })
