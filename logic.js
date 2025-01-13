@@ -137,12 +137,12 @@ resetButton.addEventListener("click", () => {
 })
 
 backspace.addEventListener("click", () => {
-    if (operator === null) {
-        var1 = var1.slice(0, -1)
-        display.textContent = var1
-    }
-    else if (operator !== null) {
+    if (operator !== null && var2 !== "") {
         var2 = var2.slice(0, -1)
         display.textContent = var2
+    }
+    else {
+        var1 = var1.slice(0, -1)
+        display.textContent = var1
     }
 })
