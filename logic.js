@@ -9,11 +9,12 @@ const leftContainer = document.querySelector("#leftContainer")
 const zero = document.querySelector("#zero")
 const changeSign = document.querySelector("#changeSign")
 const comma = document.querySelector("#comma")
+const backspace = document.querySelector("#backspace")
 
-let var1 = null
+let var1 = ""
 let isVar1Float = false
 let operator = null
-let var2 = null
+let var2 = ""
 let isVar2Float = false
 
 display.textContent = var1
@@ -22,13 +23,11 @@ display.textContent = var1
 //clicking concats a number
 numberContainer.addEventListener("click", (event) => {
     if (operator === null) {
-        var1 = ""
         source = event.target
         var1 += source.textContent
         display.textContent = var1
     }
     else {
-        var2 = ""
         source = event.target
         var2 += source.textContent
         display.textContent = var2
@@ -91,7 +90,7 @@ equalSign.addEventListener("click", (event) => {
     const subtraction = var1 - var2
     const multiplication = var1 * var2
     const division = var1 / var2
-    if (operator !== null && var2 !== null) {
+    if (operator !== null && var2 !== "") {
         switch (operator) {
             case "+" :
                 var1 = addition;
@@ -122,10 +121,21 @@ equalSign.addEventListener("click", (event) => {
 })
 
 resetButton.addEventListener("click", () => {
-    var1 = null
+    var1 = ""
     isVar1Float = false
     operator = null
-    var2 = null
+    var2 = ""
     isVar2Float = false
     display.textContent = var1
+})
+
+backspace.addEventListener("click", () => {
+    if (operator === null) {
+        var1 = var1.slice(0, -1)
+        display.textContent = var1
+    }
+    else if (operator !== null) {
+        var2 = var2.slice(0, -1)
+        display.textContent = var2
+    }
 })
