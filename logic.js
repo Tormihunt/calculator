@@ -3,6 +3,7 @@
 const numberContainer = document.querySelector("#numberContainer")
 const display = document.querySelector("#display")
 const operatorContainer = document.querySelector("#operatorContainer")
+const operators = operatorContainer.querySelectorAll("button")
 const equalSign = document.querySelector("#equals")
 const resetButton = document.querySelector("#resetButton")
 const leftContainer = document.querySelector("#leftContainer")
@@ -73,6 +74,7 @@ comma.addEventListener("click", () => {
 
 operatorContainer.addEventListener("click", (event) => {
     source = event.target
+    source.style.backgroundColor = "rgb(209, 70, 0)"
     operator = source.textContent
 })
 
@@ -91,6 +93,8 @@ equalSign.addEventListener("click", (event) => {
     const multiplication = var1 * var2
     const division = var1 / var2
     if (operator !== null && var2 !== "") {
+        operators.forEach((child) => {
+        child.style.backgroundColor = "orangered"})
         switch (operator) {
             case "+" :
                 var1 = addition;
@@ -127,6 +131,9 @@ resetButton.addEventListener("click", () => {
     var2 = ""
     isVar2Float = false
     display.textContent = var1
+    operators.forEach((child) => {
+        child.style.backgroundColor = "orangered"
+    })
 })
 
 backspace.addEventListener("click", () => {
